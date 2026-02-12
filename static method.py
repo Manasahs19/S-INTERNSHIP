@@ -7,13 +7,6 @@ class Student:
         self.name = name
         self.roll_no = roll_no
 
-    # Instance method
-    def display(self):
-        print("Name:", self.name)
-        print("Roll No:", self.roll_no)
-        print("College:", Student.college_name)
-        print("-" * 20)
-
     # Class method (updates shared data)
     @classmethod
     def change_college(cls, new_name):
@@ -26,6 +19,13 @@ class Student:
             return "Pass"
         else:
             return "Fail"
+        
+    # Instance method
+    def display(self):
+        print("Name:", self.name)
+        print("Roll No:", self.roll_no)
+        print("College:", Student.college_name)
+        print("-" * 20)
 # Create students
 s1 = Student("Manasa", 101)
 s2 = Student("Darshu", 102)
@@ -34,8 +34,9 @@ s2 = Student("Darshu", 102)
 s1.display()
 s2.display()
 
-# Change college name using classmethod
+print(Student.college_name)
 Student.change_college("Gousia College")
+print(s1.college_name)
 
 # Display again (college name updated for all)
 s1.display()
